@@ -28,8 +28,11 @@ export interface ICategory {
 export interface IProduct {
   _id: string;
   name: string;
-  categoryId: string;
-  user: string;
+  user: IUser | string;
+  categories: {
+    category: string;
+    confidence: number;
+  }[];
   isEditable?: boolean;
   price: number;
   image?: string;

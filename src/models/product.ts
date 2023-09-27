@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import Category from "./category";
+import User from "./user";
 
 const productSchema = new mongoose.Schema(
   {
@@ -8,11 +8,18 @@ const productSchema = new mongoose.Schema(
       required: true,
       ref: "User",
     },
-    categoryId: {
-      type: Schema.Types.ObjectId,
-      required: true,
-      ref: Category,
-    },
+    categories: [
+      {
+        category: {
+          type: String,
+          required: true,
+        },
+        confidence: {
+          type: Number,
+          required: true,
+        },
+      },
+    ],
     name: {
       type: String,
       required: true,
